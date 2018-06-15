@@ -11,63 +11,67 @@ namespace CustomListUnitTest
         [TestMethod]
         public void Add_FirstValue_OneItemInList()
         {
-            List<int> CustomList = new List<int>();
+            CustomList<int> customList = new CustomList<int>();
             int firstValue = 1;
 
-            CustomList.Add(firstValue);
+            customList.Add(firstValue);
 
-            Assert.AreEqual(firstValue, CustomList[0]);
+            Assert.AreEqual(firstValue, customList[0]);
         }
 
         [TestMethod]
         public void Add_SecondValue_TwoItemsInList()
         {
-            List<int> CustomList = new List<int>();
+            CustomList<int> customList = new CustomList<int>();
             int firstValue = 1;
             int secondValue = 2;
 
-            CustomList.Add(firstValue);
-            CustomList.Add(secondValue);
+            customList.Add(firstValue);
+            customList.Add(secondValue);
 
-            Assert.AreEqual(secondValue, CustomList[1]);
+            Assert.AreEqual(secondValue, customList[1]);
         }
 
         [TestMethod]
         public void Add_ThreeValues_CheckCount()
         {
-            List<int> CustomList = new List<int>();
-            int firstValue = 1;
-            int secondValue = 2;
-            int thirdValue = 3;
+            CustomList<int> customList = new CustomList<int>();
             int expectedResult = 3;
 
-            CustomList.Add(firstValue);
-            CustomList.Add(secondValue);
-            CustomList.Add(thirdValue);
-            int actualResult = CustomList.Count;
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            int actualResult = customList.Count;
 
             Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
-        public void Add_CapacityToArray_True()
+        public void Add_InputToArray_ArrayInList()
         {
-            List<int[]> CustomList = new List<int[]>();
-            int array[] = new Array;
-            int array1[] = { 1, 2 };
-            int array2[] = { 3, 4 };
+            CustomList<Array> customList = new CustomList<Array>();
+            int [] inputValue = new int[] { };
 
-            Assert.AreEqual(CustomList[0], array1);
+            customList.Add(inputValue);
+
+            Assert.AreEqual(customList[0], inputValue);
+        }
+
+        [TestMethod]
+        public void Add_CapacityToArray_CheckNewIndex()
+        {
+            CustomList<Array> customList = new CustomList<Array>();
+            int[] inputValue = new int[] { };
 
         }
 
         [TestMethod]
         public void Remove_FirstValue_True()
         {
-            List<int> CustomList = new List<int>();
+            CustomList<int> customList = new CustomList<int>();
             int firstValue = 1;
 
-            CustomList.Remove(firstValue);
+            customList.Remove(firstValue);
 
             Assert.AreEqual(firstValue, true);
         }
@@ -75,29 +79,66 @@ namespace CustomListUnitTest
         [TestMethod]
         public void Remove_SecondValue_IndexChange()
         {
-            List<int> CustomList = new List<int>();
+            CustomList<int> customList = new CustomList<int>();
 
-            CustomList.Add(1);
-            CustomList.Add(2);
-            CustomList.Remove(1);
+            customList.Add(1);
+            customList.Add(2);
+            customList.Remove(1);
 
-            Assert.AreEqual(2, CustomList[0]);
+            Assert.AreEqual(2, customList[0]);
+        }
+
+        [TestMethod]
+        public void Remove_SecondValue_CheckCount()
+        {
+            CustomList<int> customList = new CustomList<int>();
+
+            customList.Add(1);
+            customList.Add(2);
+            customList.Remove(2);
+            int expectedResult = 1;
+
+            int actualResult = customList.Count;
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        public void Remove_ValueNotPresent_False()
+        {
+            CustomList<int> customList = new CustomList<int>();
+
+            customList.Add(1);
+            customList.Add(2);
+            customList.Remove(3);
+
+            Assert.AreEqual(3, false);
         }
 
         [TestMethod]
         public void ToString_FirstValue_ReturnString()
         {
-            List<int> CustomList = new List<int>();
-            int firstValue = 1;
+            CustomList<int> customList = new CustomList<int>();
             string expectedResult = "1";
 
-            CustomList.Add(firstValue);
-            string actualResult = CustomList.ToString(firstValue);
+            customList.Add(1);
+            string actualResult = customList.ToString();
 
             Assert.AreEqual(expectedResult, actualResult);
         }
 
+        [TestMethod]
+        public void ToString_SecondValue_ReturnString()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            string expectedResult = "2";
 
+            customList.Add(1);
+            customList.Add(2);
+            string actualResult = customList.ToString();
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
 
     }
 }
