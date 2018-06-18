@@ -19,12 +19,6 @@ namespace CustomList
             this.array = new T[capacity];
         }
 
-        //member variable - array(5)
-        // add method - check count
-        // add method - make array bigger
-        // check exceptions
-        // remove - count, remove someting not there
-
         public int Capacity
         {
             get { return capacity; } 
@@ -87,6 +81,24 @@ namespace CustomList
             }
             array = array2;
             return true;
+        }
+
+        public static CustomList<T> operator+ (CustomList<T> customList,  CustomList<T> customList2)
+        {
+            CustomList<T> resultList = new CustomList<T>();
+
+            for (int i = 0; i < customList.count; i++)
+            {
+                customList.array[i].Equals(customList.item);
+                resultList.Add(customList.array[i]);
+            }
+            for (int i = 0; i < customList2.count; i++)
+            {
+                customList.array[i].Equals(customList2.item);
+                resultList.Add(customList2.array[i]);
+            }
+
+            return resultList;
         }
 
         public override string ToString()

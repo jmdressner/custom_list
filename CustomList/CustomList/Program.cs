@@ -21,11 +21,13 @@ namespace CustomList
             customList.Add(6);
             customList.Add(7);
             customList.Add(8);
-            customList.Add(9);
-            customList.Add(10);
-            customList.Add(11);
-            customList.Add(12);
-            
+
+            CustomList<int> customList2 = new CustomList<int>();
+
+            customList2.Add(1);
+            customList2.Add(2);
+
+            CustomList<int> resultList = customList + customList2;
         }
     }
 }

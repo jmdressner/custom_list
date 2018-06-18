@@ -58,11 +58,20 @@ namespace CustomListUnitTest
         }
 
         [TestMethod]
-        public void Add_CapacityToArray_CheckNewIndex()
+        public void Add_CapacityToArray_CheckCapacity()
         {
-            CustomList<Array> customList = new CustomList<Array>();
-            int[] inputValue = new int[] { };
+            CustomList<int> customList = new CustomList<int>();
+            int expectedResult = 10;
 
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            customList.Add(4);
+            customList.Add(5);
+            customList.Add(6);
+            int actualResult = customList.Capacity;
+
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
@@ -140,5 +149,65 @@ namespace CustomListUnitTest
             Assert.AreEqual(expectedResult, actualResult);
         }
 
+        [TestMethod]
+        public void ToString_Count_CheckIfItStaysTheSame()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            int expectedResult = 2;
+
+            customList.Add(1);
+            customList.Add(2);
+            customList.ToString();
+            int actualResult = customList.Count;
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        public void Overload_PlusOperator_CheckCount()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+            int expectedResult = 4;
+
+            customList.Add(1);
+            customList.Add(2);
+            customList2.Add(3);
+            customList2.Add(4);
+            CustomList<int> resultList = customList + customList2;
+            int actualResult = resultList.Count;
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        public void Overload_PlusOperator_CheckValueAtIndex2()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+
+            customList.Add(1);
+            customList.Add(2);
+            customList2.Add(3);
+            customList2.Add(4);
+            CustomList<int> resultList = customList + customList2;
+
+            Assert.AreEqual(3, resultList[2]);
+        }
+
+        [TestMethod]
+        public void Overload_PlusOperator_CheckValueAtIndex0()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+
+            customList.Add(1);
+            customList.Add(2);
+            customList2.Add(3);
+            customList2.Add(4);
+            CustomList<int> resultList = customList + customList2;
+
+            Assert.AreEqual(1, resultList[0]);
+        }
     }
 }
