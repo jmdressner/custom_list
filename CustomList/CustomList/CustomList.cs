@@ -118,6 +118,11 @@ namespace CustomList
             return subtractedList;
         }
 
+        public void Zip(CustomList<T> customList, CustomList<T> customList2)
+        {
+            CustomList<T> zipList = new CustomList<T>();
+        }
+
         public override string ToString()
         {
             return "";

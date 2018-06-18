@@ -8,6 +8,7 @@ namespace CustomListUnitTest
     [TestClass]
     public class CustomListTest1
     {
+        // Add Method Tests ------------------------------------
         [TestMethod]
         public void Add_FirstValue_OneItemInList()
         {
@@ -74,6 +75,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expectedResult, actualResult);
         }
 
+        // Remove Method Tests ------------------------------------
         [TestMethod]
         public void Remove_FirstValue_True()
         {
@@ -124,6 +126,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(3, false);
         }
 
+        // ToString Method Tests --------------------------------
         [TestMethod]
         public void ToString_FirstValue_ReturnString()
         {
@@ -163,6 +166,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expectedResult, actualResult);
         }
 
+        // Overload + Operator Method Tests --------------------
         [TestMethod]
         public void Overload_PlusOperator_CheckCount()
         {
@@ -210,6 +214,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(1, resultList[0]);
         }
 
+        // Overload - Operator Method Tests -----------------------
         [TestMethod]
         public void Overload_MinusOperator_CheckCount()
         {
@@ -261,6 +266,57 @@ namespace CustomListUnitTest
             CustomList<int> subtractedList = customList - customList2;
 
             Assert.AreEqual(1, subtractedList[0]);
+        }
+
+        // Zip Method Tests-------------------------------------------
+        [TestMethod]
+        public void Zip_TwoListsTogether_CheckCount()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+            CustomList<int> zipList = new CustomList<int>();
+            int expectedResult = 4;
+
+            customList.Add(1);
+            customList.Add(2);
+            customList2.Add(3);
+            customList2.Add(4);
+            zipList.Zip(customList, customList2);
+            int actualResult = zipList.Count;
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        public void Zip_TwoListsTogether_CheckValueAtIndex1()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+            CustomList<int> zipList = new CustomList<int>();
+
+            customList.Add(1);
+            customList2.Add(2);
+            customList.Add(3);
+            customList2.Add(4);
+            zipList.Zip(customList, customList2);
+
+            Assert.AreEqual(2, zipList[1]);
+        }
+
+        [TestMethod]
+        public void Zip_TwoListsTogether_CheckValueAtIndex2()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+            CustomList<int> zipList = new CustomList<int>();
+
+            customList.Add(1);
+            customList.Add(3);
+            customList2.Add(2);
+            customList2.Add(4);
+            zipList.Zip(customList, customList2);
+
+            Assert.AreEqual(3, zipList[2]);
         }
     }
 }

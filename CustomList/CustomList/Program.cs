@@ -31,6 +31,10 @@ namespace CustomList
             CustomList<int> resultList = customList + customList2;
 
             CustomList<int> subtractedList = customList - customList2;
+
+            CustomList<int> zipList = new CustomList<int>();
+
+            zipList.Zip(customList, customList2);
         }
     }
 }
