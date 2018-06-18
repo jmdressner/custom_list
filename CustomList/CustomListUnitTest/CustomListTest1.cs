@@ -215,7 +215,7 @@ namespace CustomListUnitTest
         {
             CustomList<int> customList = new CustomList<int>();
             CustomList<int> customList2 = new CustomList<int>();
-            int expectedResult = 4;
+            int expectedResult = 3;
 
             customList.Add(1);
             customList.Add(2);
@@ -257,7 +257,7 @@ namespace CustomListUnitTest
             customList.Add(3);
             customList.Add(4);
             customList2.Add(3);
-            customList.Add(5);
+            customList2.Add(5);
             CustomList<int> subtractedList = customList - customList2;
 
             Assert.AreEqual(1, subtractedList[0]);

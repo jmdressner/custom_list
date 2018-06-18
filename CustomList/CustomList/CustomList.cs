@@ -89,12 +89,10 @@ namespace CustomList
 
             for (int i = 0; i < customList.count; i++)
             {
-                customList.array[i].Equals(customList.item);
                 resultList.Add(customList.array[i]);
             }
             for (int i = 0; i < customList2.count; i++)
             {
-                customList.array[i].Equals(customList2.item);
                 resultList.Add(customList2.array[i]);
             }
             return resultList;
@@ -104,6 +102,18 @@ namespace CustomList
         {
             CustomList<T> subtractedList = new CustomList<T>();
 
+            for (int i = 0; i < customList.count; i++)
+            {
+                subtractedList.Add(customList.array[i]);
+                
+                for (int j = 0; j < customList2.count; j++)
+                {
+                    if (customList.array[i].Equals(customList2.array[j]))
+                    {
+                        subtractedList.Remove(customList.array[i]);
+                    }
+                }
+            }
 
             return subtractedList;
         }
