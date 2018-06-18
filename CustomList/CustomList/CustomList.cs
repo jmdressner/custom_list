@@ -118,9 +118,20 @@ namespace CustomList
             return subtractedList;
         }
 
-        public void Zip(CustomList<T> customList, CustomList<T> customList2)
+        public CustomList<T> Zip(CustomList<T> customList, CustomList<T> customList2)
         {
             CustomList<T> zipList = new CustomList<T>();
+
+            for (int i = 0; i < customList.count; i++)
+            {
+                zipList.Add(customList.array[i]);
+
+                if (i < customList2.count)
+                {
+                    zipList.Add(customList2.array[i]);
+                }
+            }
+            return zipList;
         }
 
         public override string ToString()
