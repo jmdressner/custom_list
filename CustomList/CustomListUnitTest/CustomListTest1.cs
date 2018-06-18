@@ -209,5 +209,58 @@ namespace CustomListUnitTest
 
             Assert.AreEqual(1, resultList[0]);
         }
+
+        [TestMethod]
+        public void Overload_MinusOperator_CheckCount()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+            int expectedResult = 4;
+
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            customList.Add(4);
+            customList2.Add(3);
+            customList.Add(5);
+            CustomList<int> subtractedList = customList - customList2;
+            int actualResult = subtractedList.Count;
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        public void Overload_MinusOperator_CheckValueAtIndex2()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            customList.Add(4);
+            customList2.Add(3);
+            customList.Add(5);
+            CustomList<int> subtractedList = customList - customList2;
+
+            Assert.AreEqual(4, subtractedList[2]);
+        }
+
+        [TestMethod]
+        public void Overload_MinusOperator_CheckValueAtIndex0()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            customList.Add(4);
+            customList2.Add(3);
+            customList.Add(5);
+            CustomList<int> subtractedList = customList - customList2;
+
+            Assert.AreEqual(1, subtractedList[0]);
+        }
     }
 }

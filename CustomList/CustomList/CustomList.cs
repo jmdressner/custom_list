@@ -97,8 +97,15 @@ namespace CustomList
                 customList.array[i].Equals(customList2.item);
                 resultList.Add(customList2.array[i]);
             }
-
             return resultList;
+        }
+
+        public static CustomList<T> operator- (CustomList<T> customList, CustomList<T> customList2)
+        {
+            CustomList<T> subtractedList = new CustomList<T>();
+
+
+            return subtractedList;
         }
 
         public override string ToString()

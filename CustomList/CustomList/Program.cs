@@ -26,8 +26,11 @@ namespace CustomList
 
             customList2.Add(1);
             customList2.Add(2);
+            customList2.Add(9);
 
             CustomList<int> resultList = customList + customList2;
+
+            CustomList<int> subtractedList = customList - customList2;
         }
     }
 }
