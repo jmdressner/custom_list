@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> 
     {
         T[] array;
         T item;
@@ -72,13 +72,21 @@ namespace CustomList
             }
         }
 
-        public void Remove(T item)
+        public bool Remove(T item)
         {
-            for(int i = 0; i <= count; i++)
+            T[] array2 = new T[capacity];
+
+            for (int i = 0; i <= count; i++)
             {
-                array[i] = default(T);
+                if (array[i].Equals(item))
+                {
+                    count--;
+                    continue;
+                }
+                array2[i] = array[i];
             }
-            count++;
+            array = array2;
+            return true;
         }
 
         public override string ToString()

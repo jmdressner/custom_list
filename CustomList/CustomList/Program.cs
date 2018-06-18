@@ -17,14 +17,15 @@ namespace CustomList
             customList.Add(3);
             customList.Add(4);
             customList.Add(5);
-            //customList.Remove(5);
+            customList.Remove(5);
             customList.Add(6);
             customList.Add(7);
             customList.Add(8);
-            //customList.Add(9);
-            //customList.Add(10);
-            //customList.Add(11);
-
+            customList.Add(9);
+            customList.Add(10);
+            customList.Add(11);
+            customList.Add(12);
+            
         }
     }
 }
