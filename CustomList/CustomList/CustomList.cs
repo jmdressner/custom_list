@@ -20,15 +20,15 @@ namespace CustomList
         }
 
         //member variable - array(5)
-        // addmethod - check count
+        // add method - check count
         // add method - make array bigger
         // check exceptions
-        // remove, count, remove someting not there
+        // remove - count, remove someting not there
 
         public int Capacity
         {
-            get { return capacity; }
-            set { capacity = value; }
+            get { return capacity; } 
+            set { capacity = value; } 
         }
 
         public int Count { get; }
@@ -41,12 +41,44 @@ namespace CustomList
 
         public void Add(T item)
         {
-            // add item passed in to the underlying structure (array)
+            if (count < capacity)
+            {
+                for(int i = 0; i <= count; i++)
+                {
+                    if (count == i)
+                    {
+                        array[i] = item;
+                    }
+                }
+                count++;
+            }
+            else
+            {
+                T[] array2 = new T[capacity += capacity];
+
+                for(int i = 0; i <= count; i++)
+                {
+                    if (count == i)
+                    {
+                        array2[i] = item;
+                    }
+                    else
+                    {
+                        array2[i] = array[i];
+                    }
+                }
+                array = array2;
+                count++;
+            }
         }
 
         public void Remove(T item)
         {
-
+            for(int i = 0; i <= count; i++)
+            {
+                array[i] = default(T);
+            }
+            count++;
         }
 
         public override string ToString()
