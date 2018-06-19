@@ -35,6 +35,8 @@ namespace CustomList
 
             CustomList<int> zipList = customList.Zip(customList, customList2);
 
+            customList.ToString();
+
         }
     }
 }

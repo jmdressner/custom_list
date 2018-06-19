@@ -137,7 +137,20 @@ namespace CustomList
 
         public override string ToString()
         {
-            return "";
+            string resultString = string.Empty;
+
+            for (int i = 0; i < count; i++)
+            {
+                if (i == count - 1)
+                {
+                    resultString += array[i].ToString();
+                }
+                else
+                {
+                    resultString += array[i].ToString() + ", ";
+                }
+            }
+                return resultString;
         }
     }
 }
