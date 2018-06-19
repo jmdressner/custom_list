@@ -49,7 +49,7 @@ namespace CustomList
 
             zipList = customList.Zip(customList, customList2);
 
-            customList.ToString();
+            string resultString = customList.ToString();
         }
     }
 }
