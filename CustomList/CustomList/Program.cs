@@ -35,6 +35,14 @@ namespace CustomList
 
             CustomList<int> zipList = customList.Zip(customList, customList2);
 
+            customList.Remove(8);
+            customList.Remove(7);
+            customList.Remove(6);
+            customList.Remove(4);
+            customList2.Add(7);
+
+            zipList = customList.Zip(customList, customList2);
+
             customList.ToString();
 
         }

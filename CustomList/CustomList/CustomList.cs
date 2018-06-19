@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T> 
+    public class CustomList<T> : IEnumerable<T>
     {
         T[] array;
-        T item;
         private int capacity;
         private int count; 
 
@@ -123,13 +123,32 @@ namespace CustomList
         {
             CustomList<T> zipList = new CustomList<T>();
 
-            for (int i = 0; i < customList.count; i++)
+            if (customList.count > customList2.count || customList.count == customList2.count)
             {
-                zipList.Add(customList.array[i]);
-
-                if (i < customList2.count)
+                for (int i = 0; i < customList.count; i++)
                 {
+                    zipList.Add(customList.array[i]);
+
+                    if (i < customList2.count)
+                    {
+                        zipList.Add(customList2.array[i]);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < customList.count; i++)
+                {
+                    zipList.Add(customList.array[i]);
                     zipList.Add(customList2.array[i]);
+
+                    if (i + 1 == customList.count)
+                    {
+                        for (int j = 0 + customList.count; j < customList2.count; j++)
+                        {
+                            zipList.Add(customList2.array[j]);
+                        }
+                    }
                 }
             }
             return zipList;
@@ -150,7 +169,17 @@ namespace CustomList
                     resultString += array[i].ToString() + ", ";
                 }
             }
-                return resultString;
+            return resultString;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
