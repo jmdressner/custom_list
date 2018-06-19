@@ -75,12 +75,13 @@ namespace CustomList
                 if (array[i].Equals(item))
                 {
                     count--;
-                    continue;
+                    array = array2;
+                    return true;
                 }
                 array2[i] = array[i];
             }
             array = array2;
-            return true;
+            return false;
         }
 
         public static CustomList<T> operator+ (CustomList<T> customList,  CustomList<T> customList2)

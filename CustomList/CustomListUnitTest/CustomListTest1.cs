@@ -82,21 +82,21 @@ namespace CustomListUnitTest
             CustomList<int> customList = new CustomList<int>();
 
             customList.Add(1);
-            customList.Remove(1);
+            bool actualResult = customList.Remove(1);
 
-            Assert.AreEqual(1, true);
+            Assert.AreEqual(actualResult, true);
         }
 
         [TestMethod]
-        public void Remove_SecondValue_IndexChange()
+        public void Remove_SecondValue_True()
         {
             CustomList<int> customList = new CustomList<int>();
 
             customList.Add(1);
             customList.Add(2);
-            customList.Remove(1);
+            bool actualResult = customList.Remove(2);
 
-            Assert.AreEqual(2, customList[0]);
+            Assert.AreEqual(actualResult, true);
         }
 
         [TestMethod]
@@ -121,9 +121,9 @@ namespace CustomListUnitTest
 
             customList.Add(1);
             customList.Add(2);
-            customList.Remove(3);
+            bool actualResult = customList.Remove(3);
 
-            Assert.AreEqual(3, false);
+            Assert.AreEqual(actualResult, false);
         }
 
         // ToString Method Tests --------------------------------
