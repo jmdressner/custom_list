@@ -25,7 +25,7 @@ namespace CustomList
             set { capacity = value; } 
         }
 
-        public int Count { get; }
+        public int Count { get { return count; } }
 
         public T this [int i]
         {
