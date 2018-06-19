@@ -227,6 +227,25 @@ namespace CustomListUnitTest
             Assert.AreEqual(0, resultList[4]);
         }
 
+        [TestMethod]
+        public void OverloadPlusOperator_AddTwoLists_CheckCapacity()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+            int expectedResult = 10;
+
+            customList.Add(1);
+            customList.Add(2);
+            customList2.Add(3);
+            customList2.Add(4);
+            customList2.Add(5);
+            customList2.Add(6);
+            CustomList<int> resultList = customList + customList2;
+            int actualResult = resultList.Capacity;
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
         // Overload - Operator Method Tests -----------------------
         [TestMethod]
         public void OverloadMinusOperator_TwoLists_CheckCount()
@@ -294,6 +313,27 @@ namespace CustomListUnitTest
             CustomList<int> subtractedList = customList - customList2;
 
             Assert.AreEqual(0, subtractedList[4]);
+        }
+
+        [TestMethod]
+        public void OverloadMinusOperator_TwoLists_CheckCapacity()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+            int expectedResult = 5;
+
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            customList.Add(5);
+            customList.Add(6);
+            customList.Add(7);
+            customList2.Add(1);
+            customList2.Add(4);
+            CustomList<int> subtractedList = customList - customList2;
+            int actualResult = subtractedList.Capacity;
+
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         // Zip Method Tests-------------------------------------------

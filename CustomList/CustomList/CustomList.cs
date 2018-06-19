@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T> : IEnumerable<T>
+    public class CustomList<T> : IEnumerable
     {
         T[] array;
         private int capacity;
@@ -172,14 +172,12 @@ namespace CustomList
             return resultString;
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
+            for (int i = 0; i < array.Count(); i++)
+            {
+                yield return array[i];
+            }
         }
     }
 }

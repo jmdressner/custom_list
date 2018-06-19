@@ -23,6 +23,12 @@ namespace CustomList
             customList.Add(7);
             customList.Add(8);
 
+            foreach (int array in customList)
+            {
+                Console.WriteLine(array);
+            }
+            Console.ReadLine();
+
             CustomList<int> customList2 = new CustomList<int>();
 
             customList2.Add(1);
@@ -44,7 +50,6 @@ namespace CustomList
             zipList = customList.Zip(customList, customList2);
 
             customList.ToString();
-
         }
     }
 }
