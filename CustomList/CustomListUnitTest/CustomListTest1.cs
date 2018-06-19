@@ -127,7 +127,7 @@ namespace CustomListUnitTest
         }
 
         // ToString Method Tests --------------------------------
-        //[TestMethod]
+        [TestMethod]
         public void ToString_FirstValue_ReturnString()
         {
             CustomList<int> customList = new CustomList<int>();
@@ -139,11 +139,11 @@ namespace CustomListUnitTest
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void ToString_SecondValue_ReturnString()
         {
             CustomList<int> customList = new CustomList<int>();
-            string expectedResult = "2";
+            string expectedResult = "1, 2";
 
             customList.Add(1);
             customList.Add(2);
@@ -152,7 +152,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void ToString_Count_CheckIfItStaysTheSame()
         {
             CustomList<int> customList = new CustomList<int>();
