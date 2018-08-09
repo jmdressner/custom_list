@@ -69,18 +69,34 @@ namespace CustomList
         public bool Remove(T item)
         {
             T[] array2 = new T[capacity];
+            bool isFound = false;
 
             for (int i = 0; i <= count; i++)
             {
-                if (array[i].Equals(item))
+                if (array[i].Equals(item) || isFound == true)
                 {
-                    count--;
-                    array = array2;
-                    return true;
+                    isFound = true;
+
+                    if (array[i].Equals(item))
+                    {
+                        count--;
+                        continue;
+                    }
+                    else
+                    {
+                        array2[i - 1] = array[i];
+                    }
                 }
-                array2[i] = array[i];
+                else
+                {
+                    array2[i] = array[i];
+                }
             }
             array = array2;
+            if (isFound == true)
+            {
+                return true;
+            }
             return false;
         }
 
