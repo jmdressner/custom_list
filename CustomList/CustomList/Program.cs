@@ -53,7 +53,7 @@ namespace CustomList
 
             zipList = customList.Zip(customList, customList2);
 
-            string resultString = customList.ToString();
+            string stringBuilder = customList.ToString();
         }
     }
 }

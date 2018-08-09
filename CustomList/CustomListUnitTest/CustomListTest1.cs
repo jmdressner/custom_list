@@ -215,19 +215,6 @@ namespace CustomListUnitTest
         }
 
         [TestMethod]
-        public void OverloadPlusOperator_AddEmptyList_CheckValueAtIndex4()
-        {
-            CustomList<int> customList = new CustomList<int>();
-            CustomList<int> customList2 = new CustomList<int>();
-
-            customList.Add(1);
-            customList.Add(2);
-            CustomList<int> resultList = customList + customList2;
-
-            Assert.AreEqual(0, resultList[4]);
-        }
-
-        [TestMethod]
         public void OverloadPlusOperator_AddTwoLists_CheckCapacity()
         {
             CustomList<int> customList = new CustomList<int>();

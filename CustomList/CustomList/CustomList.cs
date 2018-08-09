@@ -172,20 +172,20 @@ namespace CustomList
 
         public override string ToString()
         {
-            string resultString = string.Empty;
+            StringBuilder stringBuilder = new StringBuilder();
 
             for (int i = 0; i < count; i++)
             {
                 if (i == count - 1)
                 {
-                    resultString += array[i].ToString();
+                    stringBuilder.Append(array[i].ToString());
                 }
                 else
                 {
-                    resultString += array[i].ToString() + ", ";
+                    stringBuilder.Append(array[i].ToString() + ", ");
                 }
             }
-            return resultString;
+            return stringBuilder.ToString();
         }
 
         public IEnumerator GetEnumerator()
